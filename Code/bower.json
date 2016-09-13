@@ -1,0 +1,23 @@
+{
+  "name": "x",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Chris Klug <chris@59north.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.5.0",
+    "system.js": "^0.19.23",
+    "bootstrap": "^3.3.6"
+  }
+}

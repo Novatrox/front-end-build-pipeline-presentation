@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Styles/Site.css" rel="stylesheet" />
+</head>
+<body data-ng-controller="MyCtrl as ctrl">
+
+    <div class="container">
+        <div class="header clearfix">
+            <h3 class="text-muted">Front-End Build Pipeline</h3>
+        </div>
+
+        <div class="jumbotron">
+            <h1>{{ctrl.greeting}}</h1>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2015 Novatrox</p>
+        </footer>
+    </div>
+
+    <script src="~/bower_components/system.js/dist/system.js"></script>
+    <script>
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <text>
+        var baseUrl = '/build/';
+        var map = {
+            'angular': '/bower_components/angular/angular.js'
+        };
+        </text>
+    }
+    else
+    {
+        <text>
+        //var baseUrl = '/bundle/';
+        //var map = {
+        //    'angular': '//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js',
+        //    'app.js': 'app.bundle.js',
+        //    'services/module.js': 'services/services.bundle.js'
+        //};
+
+        var baseUrl = '/dist/';
+        var map = {
+            'angular': '//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js',
+            'app.js': 'app.min.js',
+            'services/module.js': 'services/services.min.js'
+        };
+        </text>
+    }
+
+        System.config({
+            baseURL: baseUrl,
+            map: map,
+            depCache: { 'app.js': ['services/module.js'] },
+            meta: {
+                'angular': {
+                    format: 'global',
+                    exports: 'angular'
+                }
+            }
+        });
+        System.defaultJSExtensions = true;
+
+        System.import('app.js');
+    </script>
+</body>
+</html>
