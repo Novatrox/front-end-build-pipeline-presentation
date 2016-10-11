@@ -1,4 +1,4 @@
-# Fron-End Build Pipeline Presentation
+# Front-End Build Pipeline Presentation
 In this repo you will find the presentation and code for [Chris Klug's](https://www.twitter.com/ZeroKoll) presentation about front-end build pipelines called "I say front-end build pipeline, you say WAT"
 
 ## Set up
